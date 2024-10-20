@@ -49,11 +49,11 @@
     <div class="container">
         <h1>Based on your marks: {{ results }}</h1>
         <div class="message">
-            
+            {% if results >= 50 %}
                 <h2 class="pass">You have passed with marks {{ results }}</h2>
-            
+            {% else %}
                 <h2 class="fail">You have failed with marks {{ results }}</h2>
-            
+            {% endif %}
         </div>
     </div>
 </body>

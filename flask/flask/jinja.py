@@ -19,7 +19,7 @@ app=Flask(__name__)
 
 @app.route("/")
 def welcome():
-    return "<html><H1>Welcome to the flask course</H1></html>"
+    return "<html><H1>Welcome to the SUNDAR's flask course</H1></html>"
 
 @app.route("/index",methods=['GET'])
 def index():
@@ -30,10 +30,12 @@ def about():
     return render_template('about.html')
 
 
-
+print("jdvshvbsdbh")
 ## Variable Rule
 @app.route('/success/<int:score>')
 def success(score):
+    score = int(score) 
+    print(type(score))
     res=""
     if score>=50:
         res="PASSED"
@@ -41,6 +43,19 @@ def success(score):
         res="FAILED"
 
     return render_template('result.html',results=res)
+
+@app.route('/successone/<int:score>')
+def successone(score):
+    res=""
+    if score>=50:
+        res="PASSED"
+    else:
+        res="FAILED"
+    
+    exp={'score':score,"res":res}
+
+
+    return render_template('result.html',results=exp)
 
 ## Variable Rule
 @app.route('/successres/<int:score>')
@@ -63,7 +78,7 @@ def successif(score):
 
 @app.route('/fail/<int:score>')
 def fail(score):
-    return render_template('result.html',results=score)
+    return render_template('get_results.html',results=score)
 
 @app.route('/submit',methods=['POST','GET'])
 def submit():
@@ -80,8 +95,6 @@ def submit():
     return redirect(url_for('successres',score=total_score))
             
         
-
-
 
 
 if __name__=="__main__":

@@ -8,7 +8,7 @@ app=Flask(__name__)
 
 @app.route("/")
 def welcome():
-    return "<html><H1>Welcome to the flask course</H1></html>"
+    return "<html><H1>Welcome to the <b>Sundar</b></H1><a>Welcome to the <b>Sundar</b></a></html>"
 
 @app.route("/index")
 def index():
@@ -18,6 +18,8 @@ def index():
 def about():
     return render_template('about.html')
 
-
+@app.route('/fcb')
+def fcb():
+    return render_template('barcelona.html')
 if __name__=="__main__":
     app.run(debug=True)
